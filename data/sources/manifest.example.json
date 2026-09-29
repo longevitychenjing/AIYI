@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {
+      "source_id": "zhouyi-sample",
+      "title": "《周易》样例摘录",
+      "edition": "公版原文",
+      "license_basis": "请在导入正式文本前记录其公版或授权依据。",
+      "source_url": "https://ctext.org/book-of-changes/zh",
+      "path": "sample/zhouyi.md",
+      "tags": ["周易", "卦", "变卦"]
+    }
+  ]
+}

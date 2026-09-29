@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "source_id": "freizl-yijing-64gua",
+      "title": "《易经》六十四卦卦辞、爻辞",
+      "edition": "freizl/yijing zh-CN/64gua.json",
+      "revision": "018ce866f7115cd294a34fd19bd675953d2bdd1c",
+      "license_basis": "freizl/yijing repository declares the MIT License. The importer records the immutable Git revision, source URL, file locator, and SHA-256 hash.",
+      "source_url": "https://raw.githubusercontent.com/freizl/yijing/018ce866f7115cd294a34fd19bd675953d2bdd1c/zh-CN/64gua.json",
+      "path": "freizl-yijing/64gua.json",
+      "tags": ["周易", "卦辞", "爻辞", "本卦", "变卦"]
+    }
+  ]
+}

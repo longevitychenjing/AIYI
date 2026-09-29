@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "易占：启动前端流程预览",
+      "type": "python",
+      "request": "launch",
+      "module": "http.server",
+      "args": [
+        "4173",
+        "--directory",
+        "${workspaceFolder}/preview"
+      ],
+      "console": "integratedTerminal",
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "Serving HTTP on .* port ([0-9]+)",
+        "uriFormat": "http://localhost:%s/three-step.html"
+      }
+    }
+  ]
+}

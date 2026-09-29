@@ -1,0 +1,40 @@
+from dataclasses import dataclass
+
+from .engine import HEXAGRAM_NAMES, TRIGRAMS
+
+
+@dataclass(frozen=True)
+class HexagramCatalogEntry:
+    king_wen_no: int
+    binary_key: str
+    name: str
+    upper_trigram: str
+    lower_trigram: str
+
+
+KING_WEN_ORDER = (
+    "乾为天", "坤为地", "水雷屯", "山水蒙", "水天需", "天水讼", "地水师", "水地比",
+    "风天小畜", "天泽履", "地天泰", "天地否", "天火同人", "火天大有", "地山谦", "雷地豫",
+    "泽雷随", "山风蛊", "地泽临", "风地观", "火雷噬嗑", "山火贲", "山地剥", "地雷复",
+    "天雷无妄", "山天大畜", "山雷颐", "泽风大过", "坎为水", "离为火", "泽山咸", "雷风恒",
+    "天山遁", "雷天大壮", "火地晋", "地火明夷", "风火家人", "火泽睽", "水山蹇", "雷水解",
+    "山泽损", "风雷益", "泽天夬", "天风姤", "泽地萃", "地风升", "泽水困", "水风井",
+    "泽火革", "火风鼎", "震为雷", "艮为山", "风山渐", "雷泽归妹", "雷火丰", "火山旅",
+    "巽为风", "兑为泽", "风水涣", "水泽节", "风泽中孚", "雷山小过", "水火既济", "火水未济",
+)
+
+
+def hexagram_catalog() -> tuple[HexagramCatalogEntry, ...]:
+    keys_by_name = {name: binary_key for binary_key, name in HEXAGRAM_NAMES.items()}
+    if len(keys_by_name) != 64 or set(keys_by_name) != set(KING_WEN_ORDER):
+        raise RuntimeError("The hexagram catalog does not match the casting rules.")
+    return tuple(
+        HexagramCatalogEntry(
+            king_wen_no=number,
+            binary_key=keys_by_name[name],
+            name=name,
+            upper_trigram=TRIGRAMS[keys_by_name[name][:3]],
+            lower_trigram=TRIGRAMS[keys_by_name[name][3:]],
+        )
+        for number, name in enumerate(KING_WEN_ORDER, start=1)
+    )

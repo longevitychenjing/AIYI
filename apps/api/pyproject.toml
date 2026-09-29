@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yijing-ai-api"
+version = "0.1.0"
+description = "API for the Yijing Liuyao RAG MVP"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.30,<1",
+  "httpx>=0.27,<1",
+]
+
+[project.optional-dependencies]
+dev = ["httpx>=0.27,<1", "pytest>=8,<9"]
+
+[project.scripts]
+yijing-seed-hexagrams = "yijing_ai.knowledge:main"
+yijing-seed-demo-evaluation = "yijing_ai.knowledge:seed_demo_evaluation_main"
+yijing-import-freizl-yijing = "yijing_ai.knowledge:import_freizl_yijing_main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "../../packages/liuyao/src"]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
